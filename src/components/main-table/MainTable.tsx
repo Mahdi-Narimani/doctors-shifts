@@ -11,8 +11,16 @@ const MainTable = () => {
         queryFn: getWeeklyShifts,
     });
 
-    const fixData: MainTableData[] = [];
+    let specialty: any = [];
+    specialty = data?.map((item: any) => item.TB_TITLE);
+    specialty = [...new Set(specialty)];
+    const reversedSpecialty: any = {};
+    specialty.forEach((value: string, index: number) => {
+        // هر رشته به عنوان key و اندیس به عنوان value
+        reversedSpecialty[value] = index + 1;
+    });
 
+    const fixData: MainTableData[] = [];
     daysOfWeek.forEach((day) =>
         data?.map((item: any) => {
             if (day.code === item.week_Day) {
@@ -32,29 +40,13 @@ const MainTable = () => {
         <div>
             <DataTable
                 otherClasses='shadow-lg'
-                // columns='3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr'
-                columns='repeat(19, 3fr)'
+                columns={`repeat(${specialty.length + 1}, 3fr)`}
             >
                 <DataTable.Header>
                     <div>روز</div>
-                    <div>چشم</div>
-                    <div>اعصاب و روان</div>
-                    <div>مغز و اعصاب</div>
-                    <div>گوش و حلق و بینی</div>
-                    <div>جراح عمومی</div>
-                    <div>ارتوپدی</div>
-                    <div>فیزیوتراپی</div>
-                    <div>زنان و زایمان</div>
-                    <div>طب فیزیکی</div>
-                    <div>داخلی و عفونی</div>
-                    <div>قلب و عروق</div>
-                    <div>تغذیه</div>
-                    <div>پوست</div>
-                    <div>اطفال</div>
-                    <div>کلیه و مجاری</div>
-                    <div>روانشناسی</div>
-                    <div>گوارش</div>
-                    <div>داخلی</div>
+                    {specialty.map((item: string, index: number) => (
+                        <div key={index + 1}>{item}</div>
+                    ))}
                 </DataTable.Header>
 
                 <DataTable.Body
@@ -66,6 +58,7 @@ const MainTable = () => {
                             dayOfWeek={day.title}
                             data={fixData}
                             isLastItem={index === daysOfWeek.length - 1}
+                            specialty={reversedSpecialty}
                         />
                     )}
                 ></DataTable.Body>

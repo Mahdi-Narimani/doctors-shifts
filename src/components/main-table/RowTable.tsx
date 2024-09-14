@@ -1,14 +1,13 @@
-import { specialtyColumns } from "../../constants";
 import DataTable from "../../ui/DataTable";
 
-const RowTable = ({ data, dayOfWeek, isLastItem }: any) => {
+const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
     // آرایه‌ای که تمام ستون‌ها (تخصص‌ها) خالی باشن
     const row = Array(18).fill(null);
 
     // پر کردن ستون مربوط به هر تخصص
     data.forEach((item: any) => {
         if (item.week_Day === dayOfWeek) {
-            const columnIndex = specialtyColumns[item.TB_TITLE] - 1;
+            const columnIndex = specialty[item.TB_TITLE] - 1;            
 
             // اگر سلول برای تخصص هنوز ایجاد نشده، آرایه‌ها برای شیفت‌های صبح و عصر می‌سازیم
             if (!row[columnIndex]) {
@@ -65,7 +64,8 @@ const RowTable = ({ data, dayOfWeek, isLastItem }: any) => {
                             </div>
                         </div>
                     ) : (
-""                    )}
+                        ""
+                    )}
                 </div>
             ))}
         </DataTable.Row>
