@@ -26,7 +26,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <header
-            className={`grid items-center py-3 bg-pale-gray font-medium text-gray-600 shadow-md shadow-light-gray/50 text-center`}
+            className={`grid items-center py-3 bg-pale-gray font-semibold text-gray-600 shadow-md shadow-light-gray/50 text-center`}
             style={{
                 gridTemplateColumns: columns,
             }}

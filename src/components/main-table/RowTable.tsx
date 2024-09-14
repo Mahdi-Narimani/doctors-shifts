@@ -38,9 +38,9 @@ const RowTable = ({ data, dayOfWeek, isLastItem }: any) => {
                     className='flex justify-center items-center gap-1'
                 >
                     {cell ? (
-                        <div className='flex flex-col justify-center items-center space-y-1 mx-1 w-full p-1'>
+                        <div className='flex flex-col justify-center items-center space-y-1 mx-1 w-full p-1 text-center '>
                             <div className='shift-morning rounded-md w-full py-[2px] px-1 bg-dark-blue text-light-white'>
-                                <strong>صبح: </strong>
+                                {/* <strong>صبح: </strong> */}
                                 {cell.morning.length > 0 ? (
                                     <div className='flex flex-col gap-1'>
                                         {cell.morning.map((item: string) => (
@@ -52,7 +52,7 @@ const RowTable = ({ data, dayOfWeek, isLastItem }: any) => {
                                 )}
                             </div>
                             <div className='shift-evening rounded-md w-full py-[2px] px-1 bg-light-gray/50'>
-                                <strong>عصر: </strong>
+                                {/* <strong>عصر: </strong> */}
                                 {cell.evening.length > 0 ? (
                                     <div className='flex flex-col gap-1'>
                                         {cell.evening.map((item: string) => (
@@ -65,8 +65,7 @@ const RowTable = ({ data, dayOfWeek, isLastItem }: any) => {
                             </div>
                         </div>
                     ) : (
-                        <span>x</span>
-                    )}
+""                    )}
                 </div>
             ))}
         </DataTable.Row>

@@ -10,7 +10,6 @@ const MainTable = () => {
         queryKey: ["weekly-shifts"],
         queryFn: getWeeklyShifts,
     });
-    console.log(data);
 
     const fixData: MainTableData[] = [];
 
@@ -52,8 +51,8 @@ const MainTable = () => {
                     <div>تغذیه</div>
                     <div>پوست</div>
                     <div>اطفال</div>
-                    <div>کلیه و مجاری ادراری</div>
-                    <div>روانشناسی کودکان</div>
+                    <div>کلیه و مجاری</div>
+                    <div>روانشناسی</div>
                     <div>گوارش</div>
                     <div>داخلی</div>
                 </DataTable.Header>
