@@ -30,7 +30,7 @@ const DailySchedule = () => {
         if (!error && !isLoading) {
             setTimeout(() => {
                 navigate("/");
-            }, 20000);
+            }, 200000000);
         }
     });
 

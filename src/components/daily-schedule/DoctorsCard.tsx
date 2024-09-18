@@ -21,7 +21,7 @@ const DoctorsCard = ({
 }: Props) => {
     return (
         <div className='h-full flex flex-col items-center justify-between gap-4 shadow-md p-3 rounded-lg border-[1px] border-pale-gray'>
-            <div className='w-[70%] rounded-full border-2 border-dark-blue'>
+            <div className='w-[60%] rounded-full border-2 border-dark-blue'>
                 {imgURL ? (
                     <img
                         src={""}
@@ -34,10 +34,12 @@ const DoctorsCard = ({
                     />
                 )}
             </div>
-            <div className='flex flex-col gap-3 h-[15%]'>
-                <h2 className='font-semibold text-2xl'>{doctorName}</h2>
-                <h3 className='text-lg text-slate-600'>
-                    {expertTitle} {expert}
+            <div className='w-full flex flex-col gap-3 h-[15%]'>
+                <h2 className='font-semibold text-2xl bg-dark-blue w-full py-2 rounded-lg text-white tracking-wider'>
+                    {doctorName}
+                </h2>
+                <h3 className='text-lg'>
+                    <span className='text-dark-blue'>{expertTitle}</span> <span className="font-semibold">{expert}</span>
                 </h3>
             </div>
 
