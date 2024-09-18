@@ -20,7 +20,7 @@ const DoctorsCard = ({
     imgURL,
 }: Props) => {
     return (
-        <div className='h-full flex flex-col items-center justify-between gap-4 shadow-md p-3 rounded-lg border-[1px] border-pale-gray'>
+        <div className='h-full flex flex-col items-center justify-between gap-4 shadow-lg p-3 rounded-lg border-[1px] border-pale-gray'>
             <div className='w-[60%] rounded-full border-2 border-dark-blue'>
                 {imgURL ? (
                     <img
