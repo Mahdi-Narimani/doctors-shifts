@@ -25,12 +25,13 @@ const DailySchedule = () => {
     const navigate = useNavigate();
 
     const today: string = toDayName();
+    const todayDate = new Intl.DateTimeFormat("fa-IR").format(new Date());
 
     useEffect(() => {
         if (!error && !isLoading) {
             setTimeout(() => {
                 navigate("/");
-            }, 200000000);
+            }, 500000);
         }
     });
 
@@ -41,7 +42,7 @@ const DailySchedule = () => {
     return (
         <section className='h-screen flex flex-col items-center sm:px-10'>
             <h1 className='text-center text-4xl my-6'>
-                لیست پزشکان روز {today}
+                لیست پزشکان روز {today} {todayDate}
             </h1>
             {isLoading ? (
                 <Spinner />

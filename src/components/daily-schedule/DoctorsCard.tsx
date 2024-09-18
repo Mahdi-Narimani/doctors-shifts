@@ -38,8 +38,9 @@ const DoctorsCard = ({
                 <h2 className='font-semibold text-2xl bg-dark-blue w-full py-2 rounded-lg text-white tracking-wider'>
                     {doctorName}
                 </h2>
-                <h3 className='text-lg'>
-                    <span className='text-dark-blue'>{expertTitle}</span> <span className="font-semibold">{expert}</span>
+                <h3 className='text-lg flex gap-2 justify-center'>
+                    <span className='text-dark-blue font-medium'>{expertTitle}</span>
+                    <span className='font-bold'>{expert}</span>
                 </h3>
             </div>
 
