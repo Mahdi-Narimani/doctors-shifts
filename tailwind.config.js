@@ -9,8 +9,8 @@ export default {
             colors: {
                 "light-white": "#ffffff",
                 "light-blue": "#93c5fd",
-                "dark-blue": "#3b82f6",
-                "pale-gray": "#FAFAFA",
+                "dark-blue": "#243B87",
+                "pale-gray": "#f3f3f3",
                 "light-gray": "#E0E0E0",
             },
         },

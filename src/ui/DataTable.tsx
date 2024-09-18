@@ -1,4 +1,6 @@
 import React, { createContext, useContext } from "react";
+import EmptyData from "./EmptyData";
+import Spinner from "./Spinner";
 
 interface Props {
     children: React.ReactNode;
@@ -26,7 +28,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <header
-            className={`grid items-center py-3 bg-pale-gray font-semibold text-gray-600 shadow-md shadow-light-gray/50 text-center`}
+            className={`grid items-center py-3 bg-pale-gray text-lg font-semibold text-gray-600 shadow-md shadow-light-gray text-center`}
             style={{
                 gridTemplateColumns: columns,
             }}
@@ -48,8 +50,8 @@ const Row = ({
 
     return (
         <div
-            className={`grid py-3 ${
-                !isLastItem ? "border-b-[1px] border-light-gray/45" : ""
+            className={`grid items-start py-3 ${
+                !isLastItem ? "border-b-2 border-light-gray" : ""
             } `}
             style={{
                 gridTemplateColumns: columns,
@@ -70,10 +72,10 @@ const Body = ({
     render: any;
     isLoading: boolean;
 }) => {
-    if (data.length === 0) return <p>اطلاعات در دسترس نیست⛔</p>;
+    if (data.length === 0) return <EmptyData />;
     return (
         <section className='overflow-hidden my-2'>
-            {isLoading ? <h1>در حال بارگذاری اطلاعات</h1> : data.map(render)}
+            {isLoading ? <Spinner /> : data.map(render)}
         </section>
     );
 };

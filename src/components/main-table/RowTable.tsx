@@ -7,7 +7,7 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
     // پر کردن ستون مربوط به هر تخصص
     data.forEach((item: any) => {
         if (item.week_Day === dayOfWeek) {
-            const columnIndex = specialty[item.TB_TITLE] - 1;            
+            const columnIndex = specialty[item.TB_TITLE] - 1;
 
             // اگر سلول برای تخصص هنوز ایجاد نشده، آرایه‌ها برای شیفت‌های صبح و عصر می‌سازیم
             if (!row[columnIndex]) {
@@ -24,21 +24,31 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
     });
 
     return (
-        <DataTable.Row isLastItem={isLastItem}>
-            <div className='text-center flex items-center justify-center'>
-                <span className='w-full py-2 rounded-md shadow-lg text-lg bg-pale-gray ml-1'>
+        <DataTable.Row
+            isLastItem={isLastItem}
+        >
+            <div className='text-center flex items-center justify-center gap-2 ml-2'>
+                <span className='w-full py-4 rounded-md shadow-lg text-xl bg-pale-gray/70'>
                     {dayOfWeek}
                 </span>
+                <div className='flex flex-col space-y-2'>
+                    <span className='w-auto p-2 rounded-md text-xl bg-dark-blue text-light-white'>
+                        صبح
+                    </span>
+                    <span className='w-auto p-2 rounded-md text-xl bg-light-gray/50'>
+                        عصر
+                    </span>
+                </div>
             </div>
 
             {row.map((cell, index) => (
                 <div
                     key={index}
-                    className='flex justify-center items-center gap-1'
+                    className='flex justify-center items-start text-[22px]'
                 >
                     {cell ? (
-                        <div className='flex flex-col justify-center items-center space-y-1 mx-1 w-full p-1 text-center '>
-                            <div className='shift-morning rounded-md w-full py-[2px] px-1 bg-dark-blue text-light-white'>
+                        <div className='flex flex-col items-center space-y-2 mx-1 w-full text-center'>
+                            <div className='shift-morning space-y-2 rounded-md w-full py-2 px-1 bg-dark-blue text-light-white leading-7'>
                                 {/* <strong>صبح: </strong> */}
                                 {cell.morning.length > 0 ? (
                                     <div className='flex flex-col gap-1'>
@@ -47,10 +57,10 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
                                         ))}
                                     </div>
                                 ) : (
-                                    <span>x</span>
+                                    <span>-</span>
                                 )}
                             </div>
-                            <div className='shift-evening rounded-md w-full py-[2px] px-1 bg-light-gray/50'>
+                            <div className='shift-evening space-y-2 rounded-md w-full py-2 px-1 bg-light-gray/50 leading-7'>
                                 {/* <strong>عصر: </strong> */}
                                 {cell.evening.length > 0 ? (
                                     <div className='flex flex-col gap-1'>
@@ -59,7 +69,7 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
                                         ))}
                                     </div>
                                 ) : (
-                                    <span>x</span>
+                                    <span>-</span>
                                 )}
                             </div>
                         </div>

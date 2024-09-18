@@ -4,8 +4,13 @@ import { MainTableData } from "../../types/main-table";
 import DataTable from "../../ui/DataTable";
 import RowTable from "./RowTable";
 import { getWeeklyShifts } from "../../services/getWeeklyShifts";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Error from "../../ui/Error";
 
 const MainTable = () => {
+    const navigate = useNavigate();
+
     const { isLoading, error, data } = useQuery({
         queryKey: ["weekly-shifts"],
         queryFn: getWeeklyShifts,
@@ -20,11 +25,11 @@ const MainTable = () => {
         reversedSpecialty[value] = index + 1;
     });
 
-    const fixData: MainTableData[] = [];
+    const finalData: MainTableData[] = [];
     daysOfWeek.forEach((day) =>
         data?.map((item: any) => {
             if (day.code === item.week_Day) {
-                fixData.push({
+                finalData.push({
                     ...item,
                     week_Day: day.title,
                 });
@@ -32,20 +37,37 @@ const MainTable = () => {
         })
     );
 
+    useEffect(() => {
+        if (!isLoading) {
+            setTimeout(() => {
+                navigate("/daily-schedule");
+            }, 10000);
+        }
+    });    
+
     if (error) {
-        return <h1>دریافت اطلاعات با مشکل مواجه شد</h1>;
+        return <Error message="دریافت اطلاعات با مشکل مواجه شد"/>;
     }
 
     return (
         <div>
             <DataTable
                 otherClasses='shadow-lg'
-                columns={`repeat(${specialty.length + 1}, 3fr)`}
+                columns={`5.5fr repeat(${specialty.length}, 4.5fr)`}
             >
                 <DataTable.Header>
-                    <div>روز</div>
+                    <div className='flex items-center justify-center ml-2'>
+                        <span className='w-full py-4 rounded-md shadow-lg bg-light-white/30'>
+                            روز
+                        </span>
+                    </div>
                     {specialty.map((item: string, index: number) => (
-                        <div key={index + 1}>{item}</div>
+                        <div
+                            key={index + 1}
+                            className='border-l-2'
+                        >
+                            {item}
+                        </div>
                     ))}
                 </DataTable.Header>
 
@@ -56,7 +78,7 @@ const MainTable = () => {
                         <RowTable
                             key={day.code}
                             dayOfWeek={day.title}
-                            data={fixData}
+                            data={finalData}
                             isLastItem={index === daysOfWeek.length - 1}
                             specialty={reversedSpecialty}
                         />
