@@ -12,7 +12,7 @@ interface Props {
 
 const DoctorsCard = ({
     doctorName,
-    // nationalId,
+    nationalId,
     expert,
     expertTitle,
     startTime,
@@ -24,7 +24,7 @@ const DoctorsCard = ({
             <div className='w-[60%] rounded-full border-2 border-dark-blue'>
                 {imgURL ? (
                     <img
-                        src={""}
+                        src={`./pics/${nationalId}.jpg`}
                         alt={doctorName}
                     />
                 ) : (
@@ -39,7 +39,9 @@ const DoctorsCard = ({
                     {doctorName}
                 </h2>
                 <h3 className='text-lg flex gap-2 justify-center'>
-                    <span className='text-dark-blue font-medium'>{expertTitle}</span>
+                    <span className='text-dark-blue font-medium'>
+                        {expertTitle}
+                    </span>
                     <span className='font-bold'>{expert}</span>
                 </h3>
             </div>
