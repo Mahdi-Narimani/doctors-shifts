@@ -31,7 +31,7 @@ const DailySchedule = () => {
         if (!error && !isLoading) {
             setTimeout(() => {
                 navigate("/");
-            }, 500000);
+            }, 60000);
         }
     });
 
@@ -40,14 +40,14 @@ const DailySchedule = () => {
     }
 
     return (
-        <section className='h-screen flex flex-col items-center sm:px-10'>
-            <h1 className='text-center text-4xl my-6'>
+        <section className='h-full flex flex-col items-center sm:px-10'>
+            <h1 className='text-center text-4xl max-2xl:text-2xl max-sm:text-lg my-6'>
                 لیست پزشکان روز {today} {todayDate}
             </h1>
             {isLoading ? (
                 <Spinner />
             ) : data.length > 0 ? (
-                <div className='w-full h-[90%] text-center grid grid-cols-6 grid-rows-2 gap-5 px-2'>
+                <div className='w-full text-center grid 2xl:grid-cols-6 2xl:grid-rows-2 max-2xl:grid-cols-4 max-2xl:grid-rows-3 max-lg:grid-cols-2 max-lg:grid-rows-6 max-md:grid-cols-1 max-md:grid-rows-12 gap-5 px-2'>
                     {data?.map((item: DailyScheduleItem, index: number) => (
                         <DoctorsCard
                             key={index}

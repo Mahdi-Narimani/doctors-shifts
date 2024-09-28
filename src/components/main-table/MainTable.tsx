@@ -41,23 +41,23 @@ const MainTable = () => {
         if (!isLoading) {
             setTimeout(() => {
                 navigate("/daily-schedule");
-            }, 10000);
+            }, 60000);
         }
-    });    
+    });
 
     if (error) {
-        return <Error message="دریافت اطلاعات با مشکل مواجه شد"/>;
+        return <Error message='دریافت اطلاعات با مشکل مواجه شد' />;
     }
 
     return (
-        <div>
+        <div className='overflow-auto'>
             <DataTable
                 otherClasses='shadow-lg'
                 columns={`5.5fr repeat(${specialty.length}, 4.5fr)`}
             >
                 <DataTable.Header>
                     <div className='flex items-center justify-center ml-2'>
-                        <span className='w-full py-4 rounded-md shadow-lg bg-light-white/30'>
+                        <span className='w-full py-4 rounded-md shadow-lg bg-light-white/30 max-2xl:py-2'>
                             روز
                         </span>
                     </div>

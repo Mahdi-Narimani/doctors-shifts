@@ -7,7 +7,6 @@ interface Props {
     expertTitle: string;
     startTime: number;
     endTime: number;
-    imgURL?: string;
 }
 
 const DoctorsCard = ({
@@ -17,28 +16,28 @@ const DoctorsCard = ({
     expertTitle,
     startTime,
     endTime,
-    imgURL,
 }: Props) => {
     return (
-        <div className='h-full flex flex-col items-center justify-between gap-4 shadow-lg p-3 rounded-lg border-[1px] border-pale-gray'>
-            <div className='w-[60%] rounded-full border-2 border-dark-blue'>
-                {imgURL ? (
-                    <img
-                        src={`./pics/${nationalId}.jpg`}
-                        alt={doctorName}
-                    />
-                ) : (
-                    <img
-                        src={"/assets/images/doctor.png"}
-                        alt={doctorName}
-                    />
-                )}
-            </div>
-            <div className='w-full flex flex-col gap-3 h-[15%]'>
-                <h2 className='font-semibold text-2xl bg-dark-blue w-full py-2 rounded-lg text-white tracking-wider'>
+        <div className='lg:h-full max-lg:h-[300px] md:w-full max-md:w-[60%] max-sm:w-[95%] mx-auto flex flex-col items-center justify-between lg:gap-4 max-lg:gap-2 shadow-lg lg:p-3 max-lg:p-4 rounded-lg border-[1px] border-pale-gray'>
+            <img
+                src={`/pics/${nationalId}.jpg`}
+                alt={doctorName}
+                className='lg:size-[200px] max-lg:size-[150px] rounded-full border-2 border-dark-blue object-cover'
+                onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+
+                    if (target.src !== `/pics/${nationalId}.jpg`) {
+                        target.onerror = null;
+                        target.src = "/assets/images/doctor.png";
+                    }
+                }}
+            />
+
+            <div className='w-full flex flex-col lg:gap-3 max-lg:gap-2 lg:h-[15%] max-lg:h-20%'>
+                <h2 className='font-semibold xl:text-2xl max-xl:text-lg max-lg:text-sm bg-dark-blue w-full py-2 rounded-lg text-white tracking-wider'>
                     {doctorName}
                 </h2>
-                <h3 className='text-lg flex gap-2 justify-center'>
+                <h3 className='xl:text-lg max-xl:text-base max-lg:text-xs flex gap-2 justify-center'>
                     <span className='text-dark-blue font-medium'>
                         {expertTitle}
                     </span>
@@ -46,12 +45,12 @@ const DoctorsCard = ({
                 </h3>
             </div>
 
-            <div className='bg-pale-gray py-2 px-4 rounded-lg shadow-md flex items-center gap-1 h-[10%]'>
+            <div className='bg-pale-gray py-2 px-4 rounded-lg shadow-md flex items-center gap-1 lg:h-[10%] max-lg:h-[15%]'>
                 <img
                     src='/assets/icons/clock.svg'
                     alt='clock icon'
                 />
-                <h4 className='flex gap-2 text-2xl'>
+                <h4 className='flex gap-2 xl:text-2xl max-xl:text-lg max-lg:text-sm'>
                     <span>{ConvertNumbersToHoursAndMinutes(startTime)}</span>
                     تا
                     <span> {ConvertNumbersToHoursAndMinutes(endTime)}</span>

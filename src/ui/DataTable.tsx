@@ -14,7 +14,7 @@ const DataTable = ({ children, columns, otherClasses }: Props) => {
     return (
         <DataTableContext.Provider value={{ columns }}>
             <div
-                className={`${otherClasses} text-sm bg-light-white rounded-lg overflow-hidden px-1`}
+                className={`${otherClasses} text-sm bg-light-white rounded-lg px-1  max-xl:w-[2200px]`}
                 role='table'
             >
                 {children}
@@ -28,7 +28,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <header
-            className={`grid items-center py-3 bg-pale-gray text-lg font-semibold text-gray-600 shadow-md shadow-light-gray text-center`}
+            className={`grid items-center py-3 bg-pale-gray text-lg font-semibold text-gray-600 shadow-md shadow-light-gray text-center max-2xl:text-xs max-2xl:p-2`}
             style={{
                 gridTemplateColumns: columns,
             }}
@@ -50,7 +50,7 @@ const Row = ({
 
     return (
         <div
-            className={`grid items-start py-3 ${
+            className={`grid items-start py-3 max-2xl:py-1 ${
                 !isLastItem ? "border-b-2 border-light-gray" : ""
             } `}
             style={{
@@ -74,7 +74,7 @@ const Body = ({
 }) => {
     if (data.length === 0) return <EmptyData />;
     return (
-        <section className='overflow-hidden my-2'>
+        <section className='my-2'>
             {isLoading ? <Spinner /> : data.map(render)}
         </section>
     );
