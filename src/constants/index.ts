@@ -1,48 +1,30 @@
+export const PAGE_MAIN_TABLE_TIME = 40000;
+export const PAGE_DAILY_SCHEDULE_TIME = 15000;
+
 export const daysOfWeek: { title: string, code: number }[] = [
     {
         title: "شنبه",
-        code: 6,
-    },
-    {
-        title: "یکشنبه",
         code: 7,
     },
     {
-        title: "دوشنبه",
+        title: "یکشنبه",
         code: 1,
     },
     {
-        title: "سه شنبه",
+        title: "دوشنبه",
         code: 2,
     },
     {
-        title: "چهارشنبه",
+        title: "سه شنبه",
         code: 3,
     },
     {
-        title: "پنجشنبه",
+        title: "چهارشنبه",
         code: 4,
+    },
+    {
+        title: "پنجشنبه",
+        code: 5,
     },
 
 ];
-
-export const specialtyColumns: any = {
-    چشم: 1,
-    "اعصاب و روان": 2,
-    "مغز و اعصاب": 3,
-    "گوش و حلق و بینی": 4,
-    "جراح عمومی": 5,
-    ارتوپدی: 6,
-    فیزیوتراپی: 7,
-    "زنان و زایمان و مامایی": 8,
-    "طب فیزیکی": 9,
-    "داخلی و عفونی": 10,
-    "قلب و عروق": 11,
-    تغذیه: 12,
-    پوست: 13,
-    اطفال: 14,
-    "کلیه و مجاری": 15,
-    "روانشناسی": 16,
-    گوارش: 17,
-    داخلی: 18,
-};
