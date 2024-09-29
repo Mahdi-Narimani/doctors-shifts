@@ -5,11 +5,11 @@ import DataTable from "../../ui/DataTable";
 import RowTable from "./RowTable";
 import { getWeeklyShifts } from "../../services/getWeeklyShifts";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import Error from "../../ui/Error";
 
 const MainTable = () => {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
 
     const { isLoading, error, data } = useQuery({
         queryKey: ["weekly-shifts"],
@@ -37,13 +37,13 @@ const MainTable = () => {
         })
     );
 
-    useEffect(() => {
-        if (!isLoading) {
-            setTimeout(() => {
-                navigate("/daily-schedule");
-            }, 60000);
-        }
-    });
+    // useEffect(() => {
+    //     if (!isLoading) {
+    //         setTimeout(() => {
+    //             navigate("/daily-schedule");
+    //         }, 40000);
+    //     }
+    // });
 
     if (error) {
         return <Error message='دریافت اطلاعات با مشکل مواجه شد' />;
@@ -56,7 +56,7 @@ const MainTable = () => {
                 columns={`5.5fr repeat(${specialty.length}, 4.5fr)`}
             >
                 <DataTable.Header>
-                    <div className='flex items-center justify-center ml-2'>
+                    <div className='flex items-center justify-center ml-2 max-xl:sticky right-0 top-0 max-xl:bg-light-white'>
                         <span className='w-full py-4 rounded-md shadow-lg bg-light-white/30 max-2xl:py-2'>
                             روز
                         </span>

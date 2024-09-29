@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getDailySchedule } from "../../services/getDailySchedule";
 import { toDayName } from "../../utils/dateTime";
@@ -18,20 +18,23 @@ interface DailyScheduleItem {
 }
 
 const DailySchedule = () => {
+    const navigate: NavigateFunction = useNavigate();
+
     const { data, isLoading, error } = useQuery({
         queryKey: ["daily-schedule"],
         queryFn: getDailySchedule,
     });
-    const navigate = useNavigate();
 
     const today: string = toDayName();
-    const todayDate = new Intl.DateTimeFormat("fa-IR").format(new Date());
+    const todayDate: string = new Intl.DateTimeFormat("fa-IR").format(
+        new Date()
+    );
 
     useEffect(() => {
         if (!error && !isLoading) {
             setTimeout(() => {
                 navigate("/");
-            }, 60000);
+            }, 15000);
         }
     });
 

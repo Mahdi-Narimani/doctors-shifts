@@ -50,8 +50,8 @@ const Row = ({
 
     return (
         <div
-            className={`grid items-start py-3 max-2xl:py-1 ${
-                !isLastItem ? "border-b-2 border-light-gray" : ""
+            className={`grid items-start py-4 max-2xl:py-1 ${
+                !isLastItem ? "border-b-2 border-slate-600" : ""
             } `}
             style={{
                 gridTemplateColumns: columns,

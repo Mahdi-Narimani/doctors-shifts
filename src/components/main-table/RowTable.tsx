@@ -25,8 +25,8 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
 
     return (
         <DataTable.Row isLastItem={isLastItem}>
-            <div className='text-center flex items-center justify-center gap-2 ml-2'>
-                <span className='w-full py-4 rounded-md shadow-lg md:text-xl bg-pale-gray/70 max-sm:text-xm'>  
+            <div className='text-center flex items-center justify-center gap-2 ml-2 max-xl:sticky right-0 top-0 max-xl:bg-light-white'>
+                <span className='w-full py-4 rounded-md shadow-lg md:text-xl bg-pale-gray/70 max-sm:text-xm'>
                     {dayOfWeek}
                 </span>
                 <div className='flex flex-col space-y-2'>
