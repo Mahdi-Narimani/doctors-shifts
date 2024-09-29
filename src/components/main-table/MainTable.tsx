@@ -37,13 +37,13 @@ const MainTable = () => {
         })
     );
 
-    // useEffect(() => {
-    //     if (!isLoading) {
-    //         setTimeout(() => {
-    //             navigate("/daily-schedule");
-    //         }, 40000);
-    //     }
-    // });
+    useEffect(() => {
+        if (!isLoading) {
+            setTimeout(() => {
+                navigate("/daily-schedule");
+            }, 40000);
+        }
+    });
 
     if (error) {
         return <Error message='دریافت اطلاعات با مشکل مواجه شد' />;
