@@ -39,13 +39,9 @@ const DailySchedule = () => {
                 navigate("/");
             }, PAGE_DAILY_SCHEDULE_TIME);
         }
-    });
+    }, [isLoading]);
 
-    const progress = usePageTimer(
-        PAGE_DAILY_SCHEDULE_TIME,
-        "/daily-schedule",
-        isLoading
-    );
+    const progress = usePageTimer(PAGE_DAILY_SCHEDULE_TIME, "/", isLoading);
 
     if (error) {
         return <Error message='دریافت اطلاعات با خطا مواجه شد' />;
@@ -54,7 +50,7 @@ const DailySchedule = () => {
     return (
         <>
             <ProgressBar progress={progress} />
-            <section className='h-full flex flex-col items-center sm:px-10'>
+            <section className='h-[calc(100vh-8px)] flex flex-col items-center sm:px-10'>
                 <h1 className='text-center text-4xl max-2xl:text-2xl max-sm:text-lg my-6'>
                     لیست پزشکان روز {today} {todayDate}
                 </h1>

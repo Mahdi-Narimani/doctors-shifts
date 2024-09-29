@@ -18,11 +18,11 @@ const DoctorsCard = ({
     endTime,
 }: Props) => {
     return (
-        <div className='lg:h-full max-lg:h-[300px] md:w-full max-md:w-[60%] max-sm:w-[95%] mx-auto flex flex-col items-center justify-between lg:gap-4 max-lg:gap-2 shadow-lg lg:p-3 max-lg:p-4 rounded-lg border-[1px] border-pale-gray'>
+        <div className='animate-fadeInCardUp lg:h-full max-lg:h-[300px] md:w-full max-md:w-[60%] max-sm:w-[95%] mx-auto flex flex-col items-center justify-between lg:gap-4 max-lg:gap-2 shadow-lg lg:p-3 max-lg:p-4 rounded-lg border-[1px] border-pale-gray'>
             <img
                 src={`/pics/${nationalId}.jpg`}
                 alt={doctorName}
-                className='lg:size-[240px] max-lg:size-[150px] rounded-full border-2 border-dark-blue object-contain'
+                className='lg:size-[240px] max-lg:size-[150px] rounded-[50%] border-2 border-dark-blue object-contain'
                 onError={(e) => {
                     const target = e.target as HTMLImageElement;
 

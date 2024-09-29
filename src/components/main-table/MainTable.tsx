@@ -45,7 +45,7 @@ const MainTable = () => {
                 navigate("/daily-schedule");
             }, PAGE_MAIN_TABLE_TIME);
         }
-    });
+    }, [isLoading]);
 
     const progress = usePageTimer(
         PAGE_MAIN_TABLE_TIME,
@@ -60,7 +60,7 @@ const MainTable = () => {
     return (
         <>
             <ProgressBar progress={progress} />
-            <div className='overflow-auto'>
+            <div className='overflow-auto animate-tableAnimation'>
                 <DataTable
                     otherClasses='shadow-lg'
                     columns={`5.5fr repeat(${specialty.length}, 4.5fr)`}
