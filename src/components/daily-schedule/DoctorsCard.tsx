@@ -22,7 +22,7 @@ const DoctorsCard = ({
             <img
                 src={`/pics/${nationalId}.jpg`}
                 alt={doctorName}
-                className='lg:size-[200px] max-lg:size-[150px] rounded-full border-2 border-dark-blue object-cover'
+                className='lg:size-[240px] max-lg:size-[150px] rounded-full border-2 border-dark-blue object-contain'
                 onError={(e) => {
                     const target = e.target as HTMLImageElement;
 

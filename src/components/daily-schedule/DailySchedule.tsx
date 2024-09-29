@@ -30,13 +30,13 @@ const DailySchedule = () => {
         new Date()
     );
 
-    useEffect(() => {
-        if (!error && !isLoading) {
-            setTimeout(() => {
-                navigate("/");
-            }, 15000);
-        }
-    });
+    // useEffect(() => {
+    //     if (!error && !isLoading) {
+    //         setTimeout(() => {
+    //             navigate("/");
+    //         }, 15000);
+    //     }
+    // });
 
     if (error) {
         return <Error message='دریافت اطلاعات با خطا مواجه شد' />;

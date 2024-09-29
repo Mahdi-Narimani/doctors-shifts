@@ -29,7 +29,7 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
                 <span className='w-full py-4 rounded-md shadow-lg md:text-xl bg-pale-gray/70 max-xl:bg-pale-gray max-sm:text-xm'>
                     {dayOfWeek}
                 </span>
-                <div className='flex flex-col space-y-2'>
+                <div className='flex flex-col space-y-2 max-xl:space-y-4'>
                     <span className='w-auto p-2 rounded-md text-xl bg-dark-blue text-light-white max-xl:text-xs'>
                         صبح
                     </span>
