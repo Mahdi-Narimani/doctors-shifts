@@ -48,9 +48,12 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
                         <div className='flex flex-col items-center space-y-2 mx-1 w-full text-center'>
                             <div className='shift-morning space-y-2 rounded-md w-full py-2 px-1 bg-dark-blue text-light-white leading-7 max-xl:p-1'>
                                 {cell.morning.length > 0 ? (
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='flex justify-center gap-1 '>
                                         {cell.morning.map((item: string) => (
-                                            <span>{item}</span>
+                                            <>
+                                                <span>دکتر</span>
+                                                <span>{item}</span>
+                                            </>
                                         ))}
                                     </div>
                                 ) : (
@@ -59,9 +62,12 @@ const RowTable = ({ data, dayOfWeek, isLastItem, specialty }: any) => {
                             </div>
                             <div className='shift-evening space-y-2 rounded-md w-full py-2 px-1 bg-light-gray/50 leading-7 max-xl:p-1'>
                                 {cell.evening.length > 0 ? (
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='flex justify-center gap-1 '>
                                         {cell.evening.map((item: string) => (
-                                            <span>{item}</span>
+                                            <>
+                                                <span>دکتر</span> 
+                                                 <span>{item}</span>
+                                            </>
                                         ))}
                                     </div>
                                 ) : (
